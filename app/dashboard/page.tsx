@@ -6,7 +6,6 @@
 // Based on: Task 12 (Dashboard Stats)
 // ============================================================================
 
-import { auth } from '@/auth';
 import { redirect } from 'next/navigation';
 import { XPBar } from '@/components/dashboard/XPBar';
 import { SkillsRadarWithLabels } from '@/components/dashboard/SkillsRadar';
@@ -17,20 +16,26 @@ import { WeeklyStats } from '@/components/dashboard/WeeklyStats';
 import { AccuracyTrend } from '@/components/dashboard/AccuracyTrend';
 import { UpcomingAchievements } from '@/components/achievements/UpcomingAchievements';
 import Link from 'next/link';
+import { getCurrentUser, isDemoMode } from '@/lib/demo';
 
 export default async function DashboardPage() {
-  const session = await auth();
+  const user = await getCurrentUser();
+  const isDemo = await isDemoMode();
 
-  if (!session?.user?.id) {
+  if (!user) {
     redirect('/auth/signin');
   }
 
   // TODO: Fetch user stats from API
   // const stats = await fetch(`/api/user/stats`).then(res => res.json());
 
-  // Mock data for development
+  // Mock data for development (use real user data in demo mode)
   const mockStats = {
-    user: { name: session.user.name, email: session.user.email, image: session.user.image },
+    user: {
+      name: user.name || 'Demo User',
+      email: user.email,
+      image: user.image
+    },
     level: { overall: 12, progress: { currentXP: 350, requiredXP: 500, percentage: 70 } },
     xp: { total: 3250, currentLevelXP: 350, requiredForNextLevel: 500 },
     skills: {
@@ -73,6 +78,13 @@ export default async function DashboardPage() {
 
   return (
     <div className="min-h-screen bg-neutral-50">
+      {/* Demo Mode Banner */}
+      {isDemo && (
+        <div className="bg-gradient-to-r from-purple-500 to-pink-500 text-white py-2 px-4 text-center font-semibold">
+          🎮 DEMO MODE - You&apos;re testing with a demo account
+        </div>
+      )}
+
       {/* Header */}
       <header className="bg-white border-b border-neutral-200">
         <div className="container-custom py-4">

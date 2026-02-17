@@ -44,7 +44,7 @@ export function WeeklyStats({
         {/* XP Earned */}
         <StatItem
           label="XP Earned"
-          value={totalXP.toLocaleString()}
+          value={formatNumber(totalXP)}
           icon="⭐"
           change={comparisonToLastWeek?.xp}
         />
@@ -103,6 +103,11 @@ function StatItem({
       </div>
     </div>
   );
+}
+
+function formatNumber(num: number): string {
+  // Format with dots as thousand separator (consistent across server/client)
+  return num.toString().replace(/\B(?=(\d{3})+(?!\d))/g, '.');
 }
 
 function formatStudyTime(minutes: number): string {

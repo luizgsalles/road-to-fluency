@@ -1,14 +1,24 @@
 // ============================================================================
 // Database Connection - Drizzle ORM Client
 // ============================================================================
-// Purpose: Initialize Drizzle ORM client for Vercel Postgres
+// Purpose: Initialize Drizzle ORM client for Supabase Postgres
 // Author: @dev (Dex) + @data-engineer (Dara)
 // Based on: Task 5 (Database Schema)
 // ============================================================================
 
-import { drizzle } from 'drizzle-orm/vercel-postgres';
-import { sql } from '@vercel/postgres';
+import { drizzle } from 'drizzle-orm/postgres-js';
+import postgres from 'postgres';
 import * as schema from '@/db/schema';
+
+// Next.js automatically loads .env.local, no need for dotenv here
+// Use POSTGRES_URL (postgres.js doesn't support pgbouncer parameter)
+const connectionString = process.env.POSTGRES_URL!;
+
+if (!connectionString) {
+  throw new Error('POSTGRES_URL environment variable is required');
+}
+
+const client = postgres(connectionString, { prepare: false });
 
 /**
  * Drizzle ORM client
@@ -21,7 +31,7 @@ import * as schema from '@/db/schema';
  *
  * const allUsers = await db.select().from(users)
  */
-export const db = drizzle(sql, { schema });
+export const db = drizzle(client, { schema });
 
 /**
  * Check database connection
@@ -30,7 +40,7 @@ export const db = drizzle(sql, { schema });
  */
 export async function checkDatabaseConnection(): Promise<boolean> {
   try {
-    await sql`SELECT 1`;
+    await client`SELECT 1`;
     return true;
   } catch (error) {
     console.error('Database connection error:', error);
@@ -51,7 +61,7 @@ export async function getDatabaseHealth(): Promise<{
   const startTime = Date.now();
 
   try {
-    await sql`SELECT 1`;
+    await client`SELECT 1`;
     const latencyMs = Date.now() - startTime;
 
     return {
