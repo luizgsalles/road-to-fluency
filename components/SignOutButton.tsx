@@ -11,8 +11,8 @@ export function SignOutButton({ compact }: SignOutButtonProps) {
     <button
       onClick={() => signOut({ callbackUrl: '/auth/signin' })}
       className={compact
-        ? 'text-sm text-slate-500 hover:text-red-600 transition-colors font-medium px-2 py-1'
-        : 'btn-outline'
+        ? 'text-sm font-semibold text-red-600 hover:bg-red-50 border border-red-200 rounded-lg px-3 py-1.5 transition-colors'
+        : 'btn-outline border-red-300 text-red-600 hover:bg-red-50'
       }
     >
       Sign Out
