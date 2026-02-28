@@ -28,7 +28,7 @@ English learning platform with AI-powered corrections, spaced repetition, and sm
 
 ```bash
 # Clone repository
-git clone https://github.com/YOUR_USERNAME/road-to-fluency.git
+git clone https://github.com/luizgsalles/road-to-fluency.git
 cd road-to-fluency
 
 # Install dependencies
