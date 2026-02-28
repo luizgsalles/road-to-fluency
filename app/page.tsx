@@ -19,7 +19,7 @@ export default async function HomePage() {
       <header className="bg-white/10 backdrop-blur-md border-b border-white/20">
         <div className="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
           <div className="text-2xl font-bold text-white">
-            Business English RPG 🎮
+            Road to Fluency
           </div>
           <Link
             href="/auth/signin"
@@ -46,7 +46,7 @@ export default async function HomePage() {
             href="/demo"
             className="px-10 py-5 bg-yellow-400 text-gray-900 rounded-2xl font-bold text-xl hover:bg-yellow-300 hover:scale-110 transition-all shadow-2xl"
           >
-            🎮 Começar GRÁTIS
+            Começar GRÁTIS
           </Link>
 
           <Link
@@ -90,8 +90,8 @@ export default async function HomePage() {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {/* Feature 1 */}
             <div className="bg-gradient-to-br from-blue-500 to-purple-600 rounded-3xl p-8 text-white hover:scale-105 transition-transform shadow-2xl">
-              <div className="text-6xl mb-4">🎮</div>
-              <h3 className="text-3xl font-bold mb-4">Progressão RPG</h3>
+              <div className="text-6xl mb-4">⚡</div>
+              <h3 className="text-3xl font-bold mb-4">Progressão Inteligente</h3>
               <p className="text-lg text-white/90">
                 Ganhe XP, suba de nível em 6 habilidades e desbloqueie conquistas!
               </p>
@@ -167,7 +167,7 @@ export default async function HomePage() {
             href="/demo"
             className="inline-block px-12 py-6 bg-gradient-to-r from-purple-600 to-pink-600 text-white rounded-2xl font-bold text-2xl hover:scale-110 transition-transform shadow-2xl"
           >
-            🎮 COMEÇAR AGORA GRÁTIS
+            COMEÇAR AGORA GRÁTIS
           </Link>
         </div>
       </div>

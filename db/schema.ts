@@ -1,7 +1,7 @@
 // ============================================================================
 // Database Schema - Drizzle ORM
 // ============================================================================
-// Purpose: Define database schema for Business English RPG app
+// Purpose: Define database schema for Road to Fluency app
 // Author: @dev (Dex) + @data-engineer (Dara) - AIOS Developer + Data Engineer
 // Based on: Task 5 (Database Schema), DATABASE-SCHEMA.sql
 // ORM: Drizzle ORM with Vercel Postgres

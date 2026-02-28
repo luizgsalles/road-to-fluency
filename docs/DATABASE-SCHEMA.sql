@@ -1,5 +1,5 @@
 -- ============================================================================
--- DATABASE SCHEMA - Business English RPG (English Level Up)
+-- DATABASE SCHEMA - Road to Fluency
 -- ============================================================================
 -- Version: 1.0.0
 -- Date: 2026-02-16
@@ -18,7 +18,7 @@ CREATE EXTENSION IF NOT EXISTS "pgcrypto";
 
 -- ============================================================================
 -- TABLE 1: users
--- Purpose: Core user data, authentication, RPG progression
+-- Purpose: Core user data, authentication, progression
 -- ============================================================================
 
 CREATE TABLE users (
@@ -33,7 +33,7 @@ CREATE TABLE users (
     updated_at TIMESTAMP WITH TIME ZONE DEFAULT NOW(),
     last_login_at TIMESTAMP WITH TIME ZONE,
 
-    -- RPG Progression
+    -- Progression
     xp_total INTEGER DEFAULT 0 CHECK (xp_total >= 0),
     level INTEGER DEFAULT 1 CHECK (level >= 1 AND level <= 100),
 
@@ -71,7 +71,7 @@ CREATE INDEX idx_users_level ON users(level DESC);
 CREATE INDEX idx_users_xp_total ON users(xp_total DESC);
 CREATE INDEX idx_users_streak ON users(streak_current DESC);
 
-COMMENT ON TABLE users IS 'Core user data with RPG progression and settings';
+COMMENT ON TABLE users IS 'Core user data with progression and settings';
 COMMENT ON COLUMN users.skill_xp IS 'JSON object with XP per skill (Grammar, Vocabulary, etc)';
 COMMENT ON COLUMN users.settings IS 'User preferences (daily goal, theme, audio, notifications)';
 

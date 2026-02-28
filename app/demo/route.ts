@@ -16,7 +16,7 @@ export async function GET(request: NextRequest) {
   try {
     // Check if demo user already exists
     let demoUser = await db.query.users.findFirst({
-      where: eq(users.email, 'demo@business-english-rpg.com'),
+      where: eq(users.email, 'demo@road-to-fluency.app'),
     });
 
     // Create demo user if doesn't exist
@@ -24,7 +24,7 @@ export async function GET(request: NextRequest) {
       const userId = nanoid();
       await db.insert(users).values({
         id: userId,
-        email: 'demo@business-english-rpg.com',
+        email: 'demo@road-to-fluency.app',
         name: 'Demo User',
         emailVerified: new Date(),
         nativeLanguage: 'pt-BR',
@@ -53,7 +53,7 @@ export async function GET(request: NextRequest) {
 
       // Fetch the created user
       demoUser = await db.query.users.findFirst({
-        where: eq(users.email, 'demo@business-english-rpg.com'),
+        where: eq(users.email, 'demo@road-to-fluency.app'),
       });
     }
 

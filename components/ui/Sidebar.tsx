@@ -9,14 +9,16 @@ import {
   Calendar,
   Settings,
   Zap,
+  GraduationCap,
 } from 'lucide-react';
 
 const NAV_ITEMS = [
-  { href: '/dashboard', label: 'Dashboard', icon: LayoutDashboard },
-  { href: '/daily-mix', label: "Today's Mix", icon: Calendar },
-  { href: '/exercises', label: 'Exercises', icon: BookOpen },
-  { href: '/achievements', label: 'Achievements', icon: Trophy },
-  { href: '/settings', label: 'Settings', icon: Settings },
+  { href: '/dashboard',   label: 'Dashboard',    icon: LayoutDashboard },
+  { href: '/learn',       label: 'Learn',        icon: GraduationCap },
+  { href: '/daily-mix',   label: "Today's Mix",  icon: Calendar },
+  { href: '/exercises',   label: 'Exercises',    icon: BookOpen },
+  { href: '/achievements',label: 'Achievements', icon: Trophy },
+  { href: '/settings',    label: 'Settings',     icon: Settings },
 ];
 
 interface SidebarProps {

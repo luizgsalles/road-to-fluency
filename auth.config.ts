@@ -46,7 +46,7 @@ export const authConfig = {
     Resend({
       apiKey: process.env.RESEND_API_KEY || 'resend-placeholder',
       from: process.env.RESEND_FROM_EMAIL || 'onboarding@resend.dev',
-      name: 'Business English RPG',
+      name: 'Road to Fluency',
     }),
   ],
 
@@ -98,9 +98,10 @@ export const authConfig = {
       const isOnDashboard = nextUrl.pathname.startsWith('/dashboard');
       const isOnExercise = nextUrl.pathname.startsWith('/exercise');
       const isOnProfile = nextUrl.pathname.startsWith('/profile');
+      const isOnLearn = nextUrl.pathname.startsWith('/learn');
 
       // Protected routes require authentication
-      if (isOnDashboard || isOnExercise || isOnProfile) {
+      if (isOnDashboard || isOnExercise || isOnProfile || isOnLearn) {
         if (isLoggedIn) return true;
         return false; // Redirect to sign-in
       }

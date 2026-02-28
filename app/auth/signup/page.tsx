@@ -16,7 +16,7 @@ export default function SignUpPage() {
         {/* Logo / Branding */}
         <div className="text-center mb-8">
           <h1 className="text-4xl font-bold text-neutral-900 mb-2">
-            Business English RPG
+            Road to Fluency
           </h1>
           <p className="text-neutral-600">Start your learning journey today</p>
         </div>
@@ -112,8 +112,8 @@ export default function SignUpPage() {
         {/* Benefits */}
         <div className="mt-8 grid grid-cols-3 gap-4 text-center">
           <div>
-            <div className="text-2xl mb-1">🎮</div>
-            <div className="text-xs text-neutral-600">RPG Progression</div>
+            <div className="text-2xl mb-1">⚡</div>
+            <div className="text-xs text-neutral-600">Smart Progression</div>
           </div>
           <div>
             <div className="text-2xl mb-1">🤖</div>

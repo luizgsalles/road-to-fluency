@@ -10,7 +10,7 @@ import { NextRequest, NextResponse } from 'next/server';
 import { auth } from '@/auth';
 import { db } from '@/lib/db';
 import { exercises, users } from '@/db/schema';
-import { eq, and, lte, or, isNull } from 'drizzle-orm';
+import { eq, and, lte, or, isNull, sql } from 'drizzle-orm';
 
 /**
  * GET /api/exercises
@@ -40,6 +40,7 @@ export async function GET(request: NextRequest) {
     const searchParams = request.nextUrl.searchParams;
     const type = searchParams.get('type'); // optional
     const difficulty = searchParams.get('difficulty'); // optional
+    const topic = searchParams.get('topic'); // optional — filter by topicSlug in JSONB content
     const limit = parseInt(searchParams.get('limit') || '10', 10);
 
     // ============================================================================
@@ -81,6 +82,11 @@ export async function GET(request: NextRequest) {
     // Filter by difficulty (if specified)
     if (difficulty) {
       filters.push(eq(exercises.difficulty, difficulty));
+    }
+
+    // Filter by topic slug (JSONB field content->>'topicSlug')
+    if (topic) {
+      filters.push(sql`${exercises.content}->>'topicSlug' = ${topic}`);
     }
 
     // Check skill level requirements

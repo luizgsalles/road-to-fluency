@@ -11,7 +11,7 @@ export async function middleware(request: NextRequest) {
 
   const isDemoMode = request.cookies.get('demo-session')?.value === 'true';
 
-  const protectedPaths = ['/dashboard', '/exercise', '/profile'];
+  const protectedPaths = ['/dashboard', '/exercise', '/profile', '/learn', '/daily-mix', '/achievements', '/settings'];
   const isProtectedRoute = protectedPaths.some((path) => pathname.startsWith(path));
 
   if (isProtectedRoute) {

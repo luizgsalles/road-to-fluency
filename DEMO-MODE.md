@@ -1,4 +1,4 @@
-# 🎮 Demo Mode - Business English RPG
+# Demo Mode - Road to Fluency
 
 ## O que é o Demo Mode?
 
@@ -19,7 +19,7 @@ O Demo Mode permite que você teste o aplicativo **sem precisar configurar auten
 
 Quando você entra no Demo Mode, um usuário fictício é criado com:
 
-- **Email:** demo@business-english-rpg.com
+- **Email:** demo@road-to-fluency.app
 - **Nome:** Demo User
 - **Nível:** 3
 - **XP Total:** 1,500

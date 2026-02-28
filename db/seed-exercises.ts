@@ -1,5 +1,5 @@
 // ============================================================================
-// AI-Generated Exercise Seed — Business English RPG
+// AI-Generated Exercise Seed — Road to Fluency
 // ============================================================================
 // 60 exercises across 5 types: grammar, vocabulary, reading, writing, speaking
 // Listening excluded (requires audio files)

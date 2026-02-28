@@ -129,7 +129,7 @@ export default async function DashboardPage() {
           {isDemo && (
             <div className="mb-6 bg-gradient-to-r from-primary-500 to-secondary-500 text-white rounded-xl p-4 flex items-center justify-between">
               <p className="text-sm font-medium">
-                🎮 Demo Mode — progresso salvo no banco de dados.
+                Demo Mode — progresso salvo no banco de dados.
               </p>
               <Link href="/auth/signin" className="text-sm font-semibold underline underline-offset-2">
                 Criar conta gratuita

@@ -1,5 +1,5 @@
 # Product Requirements Document (PRD)
-# Business English RPG - English Level Up
+# Road to Fluency
 
 **Version:** 1.0.0
 **Date:** 2026-02-16
@@ -10,7 +10,7 @@
 
 ## 🎯 Executive Summary
 
-**Product Name:** English Level Up (Business English RPG)
+**Product Name:** Road to Fluency
 **Vision:** Gamified learning platform that transforms Business English study into an engaging RPG experience with proven learning science
 **Target Users:** Business professionals (25-45 years) seeking to improve English for career advancement
 **Core Innovation:** Combines spaced repetition (SM-2), multiple learning modalities, and RPG gamification for maximum retention

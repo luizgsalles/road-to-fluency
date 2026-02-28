@@ -54,6 +54,10 @@ export async function POST(
     // STEP 2: Parse request body
     // ============================================================================
 
+    // mode=learn reduces XP to 50% (user has theory in front of them)
+    const mode = request.nextUrl.searchParams.get('mode'); // 'learn' | null
+    const xpMultiplier = mode === 'learn' ? 0.5 : 1;
+
     const body: SubmitExerciseRequest = await request.json();
     const { accuracy, timeSpentSeconds, userAnswer, correctAnswer } = body;
 
@@ -100,13 +104,19 @@ export async function POST(
     // STEP 4: Calculate XP earned
     // ============================================================================
 
-    const xpResult = calculateXP({
+    const rawXpResult = calculateXP({
       exerciseType: exercise.type as any,
       accuracy,
       timeSpentSeconds,
       averageTimeSeconds: exercise.averageTimeSeconds || undefined,
       streakDays: user.currentStreak,
     });
+
+    // Apply mode multiplier (learn mode = 50% XP, exercises completed with theory visible)
+    const xpResult = {
+      ...rawXpResult,
+      totalXP: Math.round(rawXpResult.totalXP * xpMultiplier),
+    };
 
     const skillXP = calculateSkillXP(exercise.type, xpResult.totalXP);
 
@@ -262,6 +272,7 @@ export async function POST(
       skillXP,
       nextReviewDate,
       performance,
+      mode: mode || 'normal',
     });
   } catch (error) {
     console.error('POST /api/exercises/[id]/submit error:', error);

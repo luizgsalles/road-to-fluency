@@ -17,9 +17,9 @@ export default function SignInPage() {
         {/* Logo / Branding */}
         <div className="text-center mb-8">
           <h1 className="text-4xl font-bold text-neutral-900 mb-2">
-            Business English RPG
+            Road to Fluency
           </h1>
-          <p className="text-neutral-600">Sign in to level up your English</p>
+          <p className="text-neutral-600">Sign in to continue your journey</p>
         </div>
 
         {/* Sign In Card */}

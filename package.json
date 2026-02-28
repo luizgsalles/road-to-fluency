@@ -1,7 +1,7 @@
 {
-  "name": "business-english-rpg",
+  "name": "road-to-fluency",
   "version": "1.0.0",
-  "description": "Business English Learning App with RPG Gamification",
+  "description": "English learning platform with AI feedback and spaced repetition",
   "private": true,
   "scripts": {
     "dev": "next dev",
@@ -13,6 +13,7 @@
     "db:push": "drizzle-kit push",
     "db:studio": "drizzle-kit studio",
     "db:seed": "tsx db/seed.ts",
+    "db:seed-topics": "tsx db/seed-topics.ts",
     "test": "jest",
     "test:watch": "jest --watch",
     "test:coverage": "jest --coverage",

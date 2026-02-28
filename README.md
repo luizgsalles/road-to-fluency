@@ -1,15 +1,16 @@
-# 🎮 Business English RPG
+# Road to Fluency
 
-Gamified Business English learning platform with AI-powered corrections, spaced repetition, and RPG progression.
+English learning platform with AI-powered corrections, spaced repetition, and smart progression.
 
 ## 🌟 Features
 
-- **🎮 RPG Gamification** - XP, levels, skills, achievements, daily streaks
+- **⚡ Smart Progression** - XP, levels, skills, achievements, daily streaks
 - **🤖 AI-Powered Corrections** - Claude API for writing, Whisper API for speaking
 - **📊 Spaced Repetition** - SM-2 algorithm (39 years Lindy validated)
 - **📈 Progress Tracking** - Dashboard with charts, heatmaps, statistics
 - **6️⃣ Exercise Types** - Grammar, vocabulary, listening, writing, speaking, reading
 - **🏆 Achievement System** - 19 achievements across 5 categories
+- **🎓 Learn Tab** - 25 grammar topics with theory + integrated exercises
 
 ## 🚀 Quick Start
 
@@ -27,8 +28,8 @@ Gamified Business English learning platform with AI-powered corrections, spaced 
 
 ```bash
 # Clone repository
-git clone https://github.com/YOUR_USERNAME/business-english-rpg.git
-cd business-english-rpg
+git clone https://github.com/YOUR_USERNAME/road-to-fluency.git
+cd road-to-fluency
 
 # Install dependencies
 npm install
@@ -42,6 +43,7 @@ npm run db:push
 
 # Seed initial data
 npm run db:seed
+npm run db:seed-topics
 
 # Run development server
 npm run dev
@@ -62,18 +64,21 @@ Open [http://localhost:3000](http://localhost:3000)
 ## 📂 Project Structure
 
 ```
-business-english-rpg/
+road-to-fluency/
 ├── app/                    # Next.js App Router pages
 │   ├── api/               # API routes
 │   ├── auth/              # Authentication pages
-│   └── dashboard/         # Main dashboard
+│   ├── dashboard/         # Main dashboard
+│   └── learn/             # Grammar topics + exercises
 ├── components/            # React components
 │   ├── dashboard/         # Dashboard widgets
 │   ├── exercises/         # Exercise components
+│   ├── learn/             # Learn tab components
 │   └── achievements/      # Achievement components
 ├── lib/                   # Core business logic
 │   ├── ai/               # AI integrations
 │   ├── audio/            # Audio recording
+│   ├── content/          # Grammar topic content (theory + exercises)
 │   ├── gamification/     # XP & level system
 │   └── learning/         # SM-2 algorithm
 ├── db/                    # Database schema & seeds
@@ -89,6 +94,7 @@ business-english-rpg/
 - **Speed Bonus:** Up to +50% (if faster than average)
 - **Streak Bonus:** +10% per day (max +100%)
 - **Level Formula:** Exponential progression (100 * level^1.5)
+- **Learn Mode:** 50% XP (theory visible = supported learning)
 
 ### Spaced Repetition (SM-2)
 
@@ -102,6 +108,15 @@ business-english-rpg/
 - 40% due reviews (SM-2 scheduled)
 - 30% weak skills (lowest accuracy)
 - 30% new material (level-appropriate)
+
+### Learn Tab (25 Grammar Topics)
+
+Theory + exercises organized by category:
+- **Verb Tenses (8):** Present/Past/Future forms
+- **Modals (3):** Ability, Obligation, Hypothetical
+- **Conditionals (5):** Zero through Mixed
+- **Structure (5):** Passive, Reported Speech, Questions, Articles, Prepositions
+- **Vocabulary (4):** Business Emails, Presentations, Meetings, Formal/Informal
 
 ## 🔐 Environment Variables
 
@@ -141,6 +156,7 @@ npm run db:migrate   # Run migrations
 npm run db:push      # Push schema to database
 npm run db:studio    # Open Drizzle Studio
 npm run db:seed      # Seed initial data
+npm run db:seed-topics  # Seed 125 grammar topic exercises
 
 npm run test         # Run tests
 npm run test:watch   # Run tests in watch mode
@@ -176,11 +192,11 @@ Daily mix algorithm interleaves:
 ## 📊 Database Schema
 
 8 tables:
-- `users` - User accounts & gamification data
+- `users` - User accounts & progression data
 - `accounts` - OAuth provider data
 - `sessions` - Active sessions
 - `verification_tokens` - Email magic links
-- `exercises` - Exercise library (6 types)
+- `exercises` - Exercise library (6 types, 125+ from topics)
 - `user_progress` - Completion history
 - `review_schedule` - SM-2 review data
 - `achievements` - Achievement definitions
@@ -206,6 +222,7 @@ See [DATABASE-SCHEMA.sql](docs/DATABASE-SCHEMA.sql) for details.
    ```bash
    npm run db:push
    npm run db:seed
+   npm run db:seed-topics
    ```
 
 4. **Configure OAuth:**
@@ -220,4 +237,4 @@ MIT
 
 Built with ❤️ using [AIOS](https://github.com/luizgsalles/aios-core-central) agent system.
 
-Co-Authored-By: Claude Sonnet 4.5 <noreply@anthropic.com>
+Co-Authored-By: Claude Sonnet 4.6 <noreply@anthropic.com>
